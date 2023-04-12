@@ -5,9 +5,9 @@ void fun(int n)
 {
     if(n>0)
     {   
-        cout<<n<<endl; // Calling Phase
+        cout<<n<<endl; // Calling Phase - Tail Recursion
         fun(n-1);
-        cout<<n<<endl; // Returning Phase
+        cout<<n<<endl; // Returning Phase - Head Recursion
     }
 }
 
