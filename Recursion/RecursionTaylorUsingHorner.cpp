@@ -11,7 +11,7 @@ double e(int x, int n)
 }
 int main()
 {
-    cout<<e(2,10);
+    cout<<e(4,15);
     return 0;
 
 }
