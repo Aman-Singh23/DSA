@@ -10,6 +10,6 @@ int comb(int n, int r)
 }
 
 int main()
-{   cout<<comb(5,3);
+{   cout<<comb(4,2);
     return 0;
 }
