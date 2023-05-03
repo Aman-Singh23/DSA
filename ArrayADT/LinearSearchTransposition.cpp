@@ -1,6 +1,14 @@
 #include<iostream>
 using namespace std;
 
+void swap(int x, int y)
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+
 int main()
 {
     int size = 10;
@@ -22,7 +30,14 @@ int main()
     for(int i=0; i<length; i++)
     {
         if(arr[i] == key)
-            cout<<i;
+        {
+            //swap(arr[i], arr[i-1]);
+            int temp;
+            temp = arr[i];
+            arr[i] = arr[i-1];
+            arr[i-1] = temp;
+            cout<<"Key "<<key<<" at index "<<i<<endl;
+        }
     }
 
     // Updated Array
