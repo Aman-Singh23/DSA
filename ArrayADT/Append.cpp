@@ -10,16 +10,18 @@ int main()
     int arr[size]={12, 14, 23, 29, 16};
 
     // Original Array
-    for(int i=0; i<size; i++)
+    for(int i=0; i<length; i++)
     {
         cout<<arr[i]<<endl;
     }
     
     // Appending
-    arr[length++] = newElement;
+    // arr[length++] = newElement;
+    arr[length] = newElement;
+    length++;
 
     //Appended Array
-    for(int i=0; i<size; i++)
+    for(int i=0; i<length; i++)
     {
         cout<<arr[i]<<endl;
     }
