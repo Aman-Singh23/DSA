@@ -27,9 +27,13 @@ int main()
         arr[index] = element;
         length++;
     }
+    else
+        return -1;
 
     for(int i=0; i<length; i++)
     {
         cout<<arr[i]<<endl;
     }
+
+    return 0;
 }
