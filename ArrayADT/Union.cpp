@@ -9,29 +9,27 @@ int main()
     int C[10];
 
     int k=0;
-    for(int i=0; i<5; i++)
-    {
+    for(int i=0; i<5; i++) {
         C[k++] = A[i];
     }
 
-    for(int j=0; j<4; j++)
-    {
-        for(int i=0; i<5; i++)
-        {
+    for(int j=0; j<4; j++) {
+        bool found = false;
+        for(int i=0; i<5; i++) {
             if(B[j] == A[i])
             {
+                found = true;
                 break;
             }
         }
-        C[k++] = B[j];
+        if(found == false) {
+            C[k++] = B[j];
+        }
     }
 
-    for(int i=0; i<10; i++)
-    {
+    for(int i=0; i<k; i++) {
         cout<<C[i]<<" ";
     }
-
-    
 
     return 0;
 }
