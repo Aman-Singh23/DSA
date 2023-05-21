@@ -30,12 +30,43 @@ void deleteElement(int* A, int& length, int pos)
     length--;
 }
 
+void Linearsearch(int* A, int& length, int key)
+{
+    for(int i=0; i<length; i++) {
+        if(key == A[i]) {
+            cout<<"Key element is at Index "<<i<<endl;
+            break;
+        }
+    }
+}
+
+void BinarySearch(int* A, int& length, int key)
+{
+    int l = 0;
+    int h = length-1;
+
+    while(l <= h) {
+        int mid = (l + h)/2;
+        if(key == A[mid]) {
+            cout<<"Key element is at Index "<<mid<<endl;
+            break;
+        }
+        else if(key > A[mid]) {
+            l = mid + 1;
+        }
+        else {
+            h = mid - 1;
+        }
+    }
+}
+
 int main()
 {
     int size = 10;
     int length = 3;
     int newElement = 4;
     int element = 15;
+    int key = 4;
     int* A = new int[length];
     
     for(int i=0; i<length; i++) {
@@ -52,6 +83,9 @@ int main()
     deleteElement(A, length, 2);
     display(A, length);
     cout<<endl;
+    Linearsearch(A, length, key);
+    BinarySearch(A, length, key);
+
 
     delete []A;
     return 0;
