@@ -15,11 +15,19 @@ void add(int* A, int& length, int newElement)
 
 void insert(int* A, int& length, int pos, int element)
 {
-    for(int i=length-1; i>=pos; i--) {
-        A[i] = A[i+1];
+    for(int i=length; i>pos; i--) {
+        A[i] = A[i-1];
     }
     A[pos] = element;
     length++;
+}
+
+void deleteElement(int* A, int& length, int pos)
+{
+    for(int i=pos; i<length-1; i++) {
+        A[i] = A[i+1];
+    }
+    length--;
 }
 
 int main()
@@ -33,10 +41,17 @@ int main()
     for(int i=0; i<length; i++) {
         A[i] = i+1;
     }
-
-    add(A, length, newElement);
-    insert(A, length, 1, element);
     display(A, length);
+    cout<<endl;
+    add(A, length, newElement);
+    display(A, length);
+    cout<<endl;
+    insert(A, length, 2, element);
+    display(A, length);
+    cout<<endl;
+    deleteElement(A, length, 2);
+    display(A, length);
+    cout<<endl;
 
     delete []A;
     return 0;
