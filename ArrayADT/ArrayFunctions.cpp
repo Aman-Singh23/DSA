@@ -6,6 +6,7 @@ void display(int* A, int length)
     for(int i=0; i<length; i++) {
         cout<<A[i]<<" ";
     }
+    cout<<endl;
 }
 
 void add(int* A, int& length, int newElement)
@@ -65,6 +66,11 @@ int getElement(int* A, int pos)
     return A[pos];
 }
 
+void setElement(int* A, int element, int pos)
+{
+    A[pos] = element;
+}
+
 int main()
 {
     int size = 10;
@@ -80,22 +86,20 @@ int main()
         A[i] = i+1;
     }
     display(A, length);
-    cout<<endl;
     add(A, length, newElement);
     display(A, length);
-    cout<<endl;
     insert(A, length, 2, element);
     display(A, length);
-    cout<<endl;
     deleteElement(A, length, 2);
     display(A, length);
-    cout<<endl;
     Linearsearch(A, length, key);
     BinarySearch(A, length, key);
     int getElem = getElement(A, pos);
     cout<<getElem<<endl;
-
+    setElement(A, element, pos);
+    display(A, length);
 
     delete []A;
+
     return 0;
 }
