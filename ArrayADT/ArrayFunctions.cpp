@@ -128,6 +128,24 @@ float averageElement(int* A, int& length)
     return average;
 }
 
+void leftShiftRotate(int* A, int length)
+{
+    int temp = A[0];
+    for(int i=0; i<length-1; i++) {
+        A[i] = A[i+1];
+    }
+    A[length-1] = temp;
+}
+
+void rightShiftRotate(int* A, int length)
+{
+    int temp = A[length-1];
+    for(int i=length-1; i>0; i--) {
+        A[i] = A[i-1];
+    }
+    A[0] = temp;
+}
+
 int main()
 {
     int size = 10;
@@ -169,6 +187,12 @@ int main()
     int sum = sumElement(A, length);
     float average = averageElement(A, length);
     cout<<"Sum: "<<sum<<" Average: "<<average<<endl;
+
+    display(A, length);
+    leftShiftRotate(A, length);
+    display(A, length);
+    rightShiftRotate(A, length);
+    display(A, length);
 
     delete []A;
 
