@@ -2,10 +2,10 @@
 #include<limits.h>
 using namespace std;
 
-void display(int* A, int length)
+void display(int* arr, int length)
 {
     for(int i=0; i<length; i++) {
-        cout<<A[i]<<" ";
+        cout<<arr[i]<<" ";
     }
     cout<<endl;
 }
@@ -94,6 +94,20 @@ int minElement(int* A, int& length)
     return min;
 }
 
+void reverse(int* A, int& length)
+{
+    int i = 0;
+    int j = length-1;
+
+    while(i <= j) {
+        int temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
+        i++;
+        j--;
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -117,8 +131,10 @@ int main()
     display(A, length);
     Linearsearch(A, length, key);
     BinarySearch(A, length, key);
+
     int getElem = getElement(A, pos);
     cout<<getElem<<endl;
+    
     setElement(A, element, pos);
     display(A, length);
 
@@ -126,6 +142,9 @@ int main()
     int minElem = minElement(A, length);
     cout<<"Max: "<<maxElem<<" Min: "<<minElem<<endl;
 
+    display(A, length);
+    reverse(A, length);
+    display(A, length);
 
     delete []A;
 
