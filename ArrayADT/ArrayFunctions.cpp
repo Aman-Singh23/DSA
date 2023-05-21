@@ -60,6 +60,11 @@ void BinarySearch(int* A, int& length, int key)
     }
 }
 
+int getElement(int* A, int pos)
+{
+    return A[pos];
+}
+
 int main()
 {
     int size = 10;
@@ -67,6 +72,8 @@ int main()
     int newElement = 4;
     int element = 15;
     int key = 4;
+    int pos = 2;
+
     int* A = new int[length];
     
     for(int i=0; i<length; i++) {
@@ -85,6 +92,8 @@ int main()
     cout<<endl;
     Linearsearch(A, length, key);
     BinarySearch(A, length, key);
+    int getElem = getElement(A, pos);
+    cout<<getElem<<endl;
 
 
     delete []A;
