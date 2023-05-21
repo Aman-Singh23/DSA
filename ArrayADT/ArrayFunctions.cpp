@@ -108,6 +108,26 @@ void reverse(int* A, int& length)
     }
 }
 
+int sumElement(int* A, int& length)
+{
+    int sum = 0;
+    for(int i=0; i<length; i++) {
+        sum = sum + A[i];
+    }
+    return sum;
+}
+
+float averageElement(int* A, int& length)
+{
+    float sum = 0;
+    float average;
+    for(int i=0; i<length; i++) {
+        sum = sum + A[i];
+    }
+    average = sum/length;
+    return average;
+}
+
 int main()
 {
     int size = 10;
@@ -145,6 +165,10 @@ int main()
     display(A, length);
     reverse(A, length);
     display(A, length);
+
+    int sum = sumElement(A, length);
+    float average = averageElement(A, length);
+    cout<<"Sum: "<<sum<<" Average: "<<average<<endl;
 
     delete []A;
 
