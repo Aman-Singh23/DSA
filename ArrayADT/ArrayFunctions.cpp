@@ -1,4 +1,5 @@
 #include<iostream>
+#include<limits.h>
 using namespace std;
 
 void display(int* A, int length)
@@ -71,6 +72,28 @@ void setElement(int* A, int element, int pos)
     A[pos] = element;
 }
 
+int maxElement(int* A, int& length)
+{
+    int max = INT_MIN;
+    for(int i=0; i<length; i++) {
+        if(A[i] > max) {
+            max = A[i];
+        }
+    }
+    return max;
+}
+
+int minElement(int* A, int& length)
+{
+    int min = INT_MAX;
+    for(int i=0; i<length; i++) {
+        if(A[i] < min) {
+            min = A[i];
+        }
+    }
+    return min;
+}
+
 int main()
 {
     int size = 10;
@@ -98,6 +121,11 @@ int main()
     cout<<getElem<<endl;
     setElement(A, element, pos);
     display(A, length);
+
+    int maxElem = maxElement(A, length);
+    int minElem = minElement(A, length);
+    cout<<"Max: "<<maxElem<<" Min: "<<minElem<<endl;
+
 
     delete []A;
 
