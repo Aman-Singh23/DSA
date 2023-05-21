@@ -146,6 +146,21 @@ void rightShiftRotate(int* A, int length)
     A[0] = temp;
 }
 
+void checkSort(int* A, int length)
+{
+    bool flag = true;
+    for(int i=0; i<length; i++) {
+        if(A[i] > A[i+1]) {
+            flag = false;
+            cout<<"Unsorted Array";
+            break;
+        }
+    }
+    if(flag == true) {
+        cout<<"Sorted Array";
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -193,6 +208,8 @@ int main()
     display(A, length);
     rightShiftRotate(A, length);
     display(A, length);
+
+    checkSort(A, length);
 
     delete []A;
 
