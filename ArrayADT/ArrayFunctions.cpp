@@ -187,6 +187,38 @@ void insertSort(int* A, int& length, int key)
     length++;
 }
 
+void merge(int* A, int* B, int* C, int& length, int& length_B)
+{
+    int k=0;
+    for(int i=0; i<length; i++) {
+        C[k++] = A[i];
+    }
+    for(int i=0; i<length_B; i++) {
+        C[k++] = B[i];
+    }
+}
+
+void sortMerge(int* A, int* B, int* C, int& length, int& length_B)
+{
+    int i = 0, j = 0, k = 0;
+    while(i<length && j<length_B) {
+        if(A[i] < B[j]) {
+            C[k++] = A[i++];
+        }
+        else {
+            C[k++] = B[j++];
+        }
+    }
+
+    while(i < length) {
+        C[k++] = A[i++];
+    }
+
+    while(j < length_B) {
+        C[k++] = B[j++];
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -196,12 +228,22 @@ int main()
     int key = 4;
     int pos = 2;
     int elem = 9;
+    int length_B = 4;
 
     int* A = new int[length];
     
     for(int i=0; i<length; i++) {
         A[i] = i+1;
     }
+
+    int* B = new int[length_B];
+    
+    for(int i=0; i<length_B; i++) {
+        B[i] = i-50;
+    }
+
+    int* C = new int[0];
+
     display(A, length);
     add(A, length, newElement);
     display(A, length);
@@ -244,7 +286,14 @@ int main()
     insertSort(A, length, elem);
     display(A, length);
 
+    // merge(A, B, C, length, length_B);
+    sortMerge(A, B, C, length, length_B);
+
+    display(C, 9);
+
     delete []A;
+    delete []B;
+    delete []C;
 
     return 0;
 }
