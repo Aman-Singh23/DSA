@@ -149,16 +149,42 @@ void rightShiftRotate(int* A, int length)
 void checkSort(int* A, int length)
 {
     bool flag = true;
-    for(int i=0; i<length; i++) {
+    for(int i=0; i<length-1; i++) {
         if(A[i] > A[i+1]) {
             flag = false;
-            cout<<"Unsorted Array";
+            cout<<"Unsorted Array"<<endl;
             break;
         }
     }
     if(flag == true) {
-        cout<<"Sorted Array";
+        cout<<"Sorted Array"<<endl;
     }
+}
+
+void sort(int* A, int& length)
+{
+    for(int i=0; i<length; i++) {
+        for(int j=i+1; j<length; j++) {
+            if(A[i] > A[j]) {
+                int temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+        }
+    }
+}
+
+void insertSort(int* A, int& length, int key)
+{
+    for(int i=0; i<length; i++) {
+        if(key < A[i]) {
+            for(int j = length; j>i-1; j--) {
+                A[j] = A[j-1];
+            }
+            A[i] = key;
+        }
+    }
+    length++;
 }
 
 int main()
@@ -169,6 +195,7 @@ int main()
     int element = 15;
     int key = 4;
     int pos = 2;
+    int elem = 9;
 
     int* A = new int[length];
     
@@ -210,6 +237,12 @@ int main()
     display(A, length);
 
     checkSort(A, length);
+    sort(A, length);
+    display(A, length);
+    checkSort(A, length);
+
+    insertSort(A, length, elem);
+    display(A, length);
 
     delete []A;
 
