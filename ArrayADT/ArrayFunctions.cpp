@@ -219,6 +219,22 @@ void sortMerge(int* A, int* B, int* C, int& length, int& length_B)
     }
 }
 
+void intersection(int* A, int* B, int* C, int& length, int& length_B)
+{
+    int k = 0;
+    bool found = false;
+    for(int i=0; i<length; i++) {
+        for(int j=0; j<length_B; j++) {
+            if(A[i] == B[j]) {
+                C[k++] = A[i];
+            }
+        }
+    }
+    if(found == false) {
+        cout<<"No common element in an array"<<endl;;
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -287,9 +303,12 @@ int main()
     display(A, length);
 
     // merge(A, B, C, length, length_B);
-    sortMerge(A, B, C, length, length_B);
+    // sortMerge(A, B, C, length, length_B);
+    // display(C, 9);
+    
+    intersection(A, B, C, length, length_B);
 
-    display(C, 9);
+    
 
     delete []A;
     delete []B;
