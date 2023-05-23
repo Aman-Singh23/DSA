@@ -256,6 +256,23 @@ void unionArray(int* A, int* B, int* C, int& length, int& length_B)
     }
 }
 
+void difference(int* A, int* B, int* C, int& length, int& length_B)
+{
+    int k = 0;
+    for(int i=0; i<length; i++) {
+        bool found = false;
+        for(int j=0; i<length_B; j++) {
+            if(A[i] == B[j]) {
+                found = true;
+                break;
+            }
+        }
+        if(found == false) {
+            C[k++] = A[i];
+        }
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -330,6 +347,8 @@ int main()
     intersection(A, B, C, length, length_B);
     unionArray(A, B, C, length, length_B);
     display(C, 9);
+
+    difference(A, B, C, length, length_B);
 
     
 
