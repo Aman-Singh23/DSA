@@ -273,6 +273,20 @@ void difference(int* A, int* B, int* C, int& length, int& length_B)
     }
 }
 
+void removeDuplicate(int* A, int& length)
+{
+    for(int i=0; i<length; i++) {
+        for(int j = i+1; j<length; j++) {
+            if(A[i] == A[j]) {
+                for(int k=j; k<length; k++) {
+                    A[k] = A[k+1];
+                }
+                length--;
+            }
+        }
+    }
+}
+
 int main()
 {
     int size = 10;
@@ -349,6 +363,7 @@ int main()
     display(C, 9);
 
     difference(A, B, C, length, length_B);
+    removeDuplicate(A, length);
 
     
 
