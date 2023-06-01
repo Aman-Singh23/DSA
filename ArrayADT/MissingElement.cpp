@@ -16,5 +16,6 @@ int main()
     int length = 5;
     int* A = new int[length]{1,2,4,5,6};
     findMissing(A, length);
-
+    delete[] A;
+    return 0;
 }
