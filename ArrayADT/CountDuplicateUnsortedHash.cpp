@@ -16,9 +16,9 @@ void countDuplicate(int* A, int& size, int* H, int& length)
 
 int main()
 {
-    int size = 10, length = 21;
-    int* A = new int[size]{3,6,8,8,10,12,15,15,15,20};
+    int size = 10, length = 9;
+    int* A = new int[size]{8,3,6,4,5,6,8,2,6};
     int* H = new int[length]{0};
-    countDuplicate(A, size, H, length); 
+    countDuplicate(A, size, H, length);
     return 0;
 }
