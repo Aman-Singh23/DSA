@@ -20,5 +20,7 @@ int main()
     int* A = new int[size]{8,3,6,4,5,6,8,2,6};
     int* H = new int[length]{0};
     countDuplicate(A, size, H, length);
+    delete []A;
+    delete []H;
     return 0;
 }

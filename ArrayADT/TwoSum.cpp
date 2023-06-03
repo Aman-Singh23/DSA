@@ -18,5 +18,6 @@ int main()
     int target = 10;
     int* A = new int[size]{6,3,8,10,16,7,5,2,9,14};
     twoSum(A, size, target);
+    delete []A;
     return 0;
 }
