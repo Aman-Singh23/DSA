@@ -1,24 +1,24 @@
 #include<iostream>
 using namespace std;
 
-void findingDuplicate(char* A)
+void findingDuplicate(char* A, int* H, int& size)
 {
     for(int i=0; A[i] != '\0'; i++) {
-        int count = 1;
-        for(int j=i+1; A[j] != '\0'; j++) {
-            if(A[i] == A[j]) {
-                count++;
-            }
-        }
-        if(count>1) {
-            cout<<A[i]<<":"<<count<<endl;
+        H[A[i]-97]++;
+    }
+
+    for(int i=0; i<size; i++) {
+        if(H[i] > 1) {
+            cout<<char(i+97)<<":"<<H[i]<<endl;
         }
     }
 }
 
 int main()
 {
+    int size = 26;
     char* A = "finding";
-    findingDuplicate(A);
+    int* H = new int[size]{0};
+    findingDuplicate(A, H, size);
     return 0;
 }
