@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 
-class Diagonal
+class UpperTriangularMatrix
 {
     private:
         int n;
         int* A;
     public:
-        Diagonal(int n)
+        UpperTriangularMatrix(int n)
         {
             this->n = n;
             A = new int[n];
@@ -45,7 +45,7 @@ class Diagonal
             }
         }
 
-        ~Diagonal()
+        ~UpperTriangularMatrix()
         {
             delete []A;
         }
@@ -54,7 +54,7 @@ class Diagonal
 
 int main()
 {
-    Diagonal d(3);
+    UpperTriangularMatrix d(3);
     d.Set(0,0,2);
     d.Set(0,1,4);
     d.Set(0,2,6);
