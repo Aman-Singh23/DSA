@@ -82,10 +82,10 @@ int main()
     d.Set(2,1,5);
     d.Set(3,2,7);
     d.Set(4,3,9);
-    d.Set(0,1,11);
-    d.Set(1,2,22);
-    d.Set(2,3,33);
-    d.Set(3,4,44);
+    d.Set(0,1,1);
+    d.Set(1,2,2);
+    d.Set(2,3,3);
+    d.Set(3,4,4);
 
 
     d.Display();
