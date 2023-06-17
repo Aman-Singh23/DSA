@@ -88,8 +88,8 @@ istream & operator>>(istream &is, Sparse &s)
     cout<<"Enter non-zero elements\n";
     for(int i=0; i<s.num; i++) {
         cin>>s.ele[i].i>>s.ele[i].j>>s.ele[i].x;
-    return is;
     }
+    return is;
 }
 
 ostream & operator<<(ostream &os, Sparse &s)
