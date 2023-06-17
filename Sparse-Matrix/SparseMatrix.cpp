@@ -85,5 +85,43 @@ Sparse Sparse::operator+(Sparse &s)
 
 istream & operator>>(istream &is, Sparse &s)
 {
-    cout<<"Enter non-zero elements"
+    cout<<"Enter non-zero elements\n";
+    for(int i=0; i<s.num; i++) {
+        cin>>s.ele[i].i>>s.ele[i].j>>s.ele[i].x;
+    return is;
+    }
+}
+
+ostream & operator<<(ostream &os, Sparse &s)
+{
+    int k = 0;
+    for(int i=0; i<s.m; i++) {
+        for(int j=0; j<s.n; j++) {
+            if(s.ele[k].i == i && s.ele[k].j == j) {
+                cout<<s.ele[k++].x<<" ";
+            }
+            else {
+                cout<<"0 ";
+            }
+        }
+        cout<<endl;
+    }
+    return os;
+}
+
+int main()
+{
+    Sparse s1(5, 5, 5);
+    Sparse s2(5, 5, 5);
+
+    cin>>s1;
+    cin>>s2;
+
+    Sparse sum = s1 + s2;
+
+    cout<<"First Matrix"<<endl<<s1;
+    cout<<"Second Matrix"<<endl<<s2;
+    cout<<"Matrix Sum"<<endl<<sum;
+
+    return 0;
 }
