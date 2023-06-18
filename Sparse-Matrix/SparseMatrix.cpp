@@ -53,14 +53,14 @@ Sparse Sparse::operator+(Sparse &s)
                 sum->ele[k++] = ele[i++];
             }
             else if(ele[i].i > s.ele[j].i) {
-                sum->ele[k++] = ele[j++];
+                sum->ele[k++] = s.ele[j++];
             }
             else {
                 if(ele[i].j < s.ele[j].j) {
                     sum->ele[k++] = ele[i++];
                 }
                 else if(ele[i].j > s.ele[j].j) {
-                    sum->ele[k++] = ele[j++];
+                    sum->ele[k++] = s.ele[j++];
                 }
                 else {
                     sum->ele[k] = ele[i];
