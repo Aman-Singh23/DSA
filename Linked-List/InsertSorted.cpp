@@ -41,26 +41,38 @@ void insert(Node *p, int position, int element)
 void insertSorted(Node *p, int element)
 {
     Node *t, *q = NULL;
-    while(p && p->data < element) {
-        q = p;
-        p = p->next;
-    }
     t = new Node;
     t->data = element;
-    t->next = q->next;
-    q->next=t;
+    t->next = NULL;
+
+    if(first == NULL) {
+        first = t;
+    }
+    else {
+        while(p && p->data < element) {
+            q = p;
+            p = p->next;
+        }
+        if(p == first){
+            t->next = first;
+            first = t;
+        }
+        else {
+            t->next = q->next;
+            q->next=t;
+        }
+    }
+    
 }
 
 int main()
 {
     Node *temp;
-    insert(first, 0, 3);
-    insert(first, 1, 5);
-    insert(first, 2, 6);
-    insert(first, 3, 9);
-    insert(first, 4, 11);
 
     insertSorted(first, 5);
+    insertSorted(first, 4);
+    insertSorted(first, 8);
+    insertSorted(first, 7);
 
     display(first);
     return 0;
