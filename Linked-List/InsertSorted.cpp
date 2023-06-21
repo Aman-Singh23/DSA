@@ -68,6 +68,12 @@ void insertSorted(Node *p, int element)
 int main()
 {
     Node *temp;
+    
+    // insert(first, 0, 3);
+    // insert(first, 1, 5);
+    // insert(first, 2, 6);
+    // insert(first, 3, 9);
+    // insert(first, 4, 11);
 
     insertSorted(first, 5);
     insertSorted(first, 4);
