@@ -57,6 +57,23 @@ int middleNode(Node *p)
     return p->data;
 }
 
+int middleNodePointer(Node *p)
+{
+    Node *q;
+    q = p = head;
+
+    while(p != NULL) {
+        p = p->next;
+        if(p) {
+            p = p->next;
+        }
+        if(q) {
+            q = q->next;
+        }
+    }
+    return q->data;
+}
+
 int main()
 {
     int A[] = {10, 20, 30, 40, 50};
@@ -64,6 +81,7 @@ int main()
     display(head);
     
     cout<<"\nMiddle Node: "<<middleNode(head);
+    cout<<"\nMiddle Node: "<<middleNodePointer(head);
 
     return 0;
 }
