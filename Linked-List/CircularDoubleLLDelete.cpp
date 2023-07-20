@@ -27,26 +27,31 @@ void create(int A[], int n)
         last->next =t;
         last = t;
     }
+    head->prev = last;
+    last->next = head;
 }
 
 void display(Node *p)
 {
-    while(p!=NULL) {
+    do {
         cout<<p->data<<" ";
         p = p->next;
     }
+    while(p!=head);
 }
 
 int length(Node *p)
 {
     int len = 0;
-    while(p!=NULL) {
+    do {
+        len++;
         p = p->next;
-    } 
+    }
+    while(p!=head);
     return len;
 }
 
-int deleteDLL(Node *p, int index)
+int deleteCDLL(Node *p, int index)
 {
     int deletedElement;
     int i;
@@ -56,12 +61,11 @@ int deleteDLL(Node *p, int index)
     }
 
     if(index == 1) {
-        head = head->next;
-        if(head) {
-            head->next->prev =NULL;
-        }
+        p->prev->next = p->next;
+        p->next->prev = p->prev;
         deletedElement = p->data;
-        delete p;
+        head = p->next;
+        free(p);
     }
     else {
         for(i=0; i<index-1;i++) {
@@ -82,11 +86,10 @@ int main()
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
     display(head);
-
+    
     cout<<endl;
 
-    deleteDLL(head, 1);
+    deleteCDLL(head, 3);
     display(head);
-
     return 0;
 }
