@@ -37,7 +37,7 @@ void display(Node *p)
     }
 }
 
-int length(Node* p)
+int length(Node *p)
 {
     int len = 0;
     while(p!=NULL) {
@@ -47,36 +47,14 @@ int length(Node* p)
     return len;
 }
 
-void insert(Node *p, int position, int element)
+int middleNode(Node *p)
 {
-    Node *t;
-    int i;
-
-    if(position<0 || position>length(p)) {
-        return;
+    int index = length(p)/2;
+    
+    for(int i=0; i<index; i++){
+        p = p->next;
     }
-
-    if(position==0) {
-        t = new Node;
-        t->data = element;
-        t->prev = NULL;
-        head->prev = t;
-        t->next = head;
-        head = t;
-    }
-    else {
-        t = new Node;
-        t->data = element;
-        for(int i=0; i<position-1; i++) {
-            p=p->next;
-        }
-        t->next = p->next;
-        t->prev = p;
-        if(p->next) {
-            p->next->prev = t;
-        }
-        p->next = t;
-    }
+    return p->data;
 }
 
 int main()
@@ -85,10 +63,7 @@ int main()
     create(A, 5);
     display(head);
     
-    cout<<endl;
-    
-    insert(head, 3, 99);
-    display(head);
+    cout<<"\nMiddle Node: "<<middleNode(head);
 
     return 0;
 }

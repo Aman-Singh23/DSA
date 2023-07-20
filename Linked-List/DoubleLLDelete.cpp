@@ -39,7 +39,7 @@ void display(Node *p)
 
 int length(Node *p)
 {
-    int len;
+    int len = 0;
     while(p!=NULL) {
         p = p->next;
     } 
