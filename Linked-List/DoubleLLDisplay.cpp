@@ -31,10 +31,10 @@ void create(int A[], int n)
 
 void display(Node *p)
 {
- while(p!=NULL) {
-    cout<<p->data<<" ";
-    p = p->next;
- }
+    while(p!=NULL) {
+        cout<<p->data<<" ";
+        p = p->next;
+    }
 }
 
 int main()
