@@ -44,17 +44,16 @@ class Queue
 
         void display()
         {
-            for(int i=front+1 ; i<=Rear; i++) {
-                cout<<Q[i];
+            for(int i=front+1; i<=Rear; i++) {
+                cout<<Q[i]<<" ";
             }
-            cout<<endl;
         }
 
 };
 
 int main()
 {
-    Queue q(5);
+    Queue q;
     q.enqueue(5);
     q.enqueue(7);
     q.enqueue(9);
@@ -62,6 +61,7 @@ int main()
 
     q.dequeue();
 
+    q.display();
     return 0;
 }
 
